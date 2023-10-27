@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>Open console to see the outputs</h1>
+    <script>
+
+        function power(a , b){
+            return a ** b;
+        }
+
+        console.log(power(2,4));
+
+        function leapYear(year){
+            if(((year % 4 === 0 && (year % 100 !== 0)) || (year % 100 === 0 && year % 400 === 0)) && Math.sign(year) === 1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        let years = [2000, 1600, 1700, 2019, 2024, 2400, -1800, 0, 1900, 2028]
+        for(let i = 0; i < years.length; i++){
+            console.log(leapYear(years[i]));
+        }
+
+
+
+        function sa(a, b, c){
+            return (a+b+c)/2
+        }
+
+        function area(a, b, c){
+            let s = sa(a,b,c);
+            return s*(s-a)*(s-b)*(s-c)
+        }
+
+
+        console.log(area(2,3,4));
+
+
+        function index(arr, item){
+            let loc = 0
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i] === item){
+                    loc =  i;
+                    break;
+                }
+                
+                }
+                if(loc){
+                    return loc;
+                }              
+                else{
+                    return -1;
+                }  
+            }
+
+        console.log(index(["ammar", "ahmed", "khan"], "khan"));
+
+        function vowelRemover(str){
+            let newStr = ""
+            for(let i = 0; i < str.length; i++){
+                if(str[i] !== "a" && str[i] !== "e" && str[i] !== "i" && str[i] !== "o" && str[i] !== "u"){
+                    newStr = newStr + str[i];
+                }
+            }
+
+            return newStr;
+        }
+
+
+        console.log(vowelRemover("Argument 1: Index, Required. An integer that specifies at what position to add /remove items, Use negative values to specify the position from the end of the array."));
+
+
+        function countSuccessiveVowels(text) {
+    text = text.toLowerCase();
+    const vowels = 'aeiou';
+    let count = 0;
+
+    for (let i = 0; i < text.length - 1; i++) {
+        if (vowels.includes(text[i]) && vowels.includes(text[i + 1])) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
+const text = "This is an example of counting successive vowels like ae, io, etc.";
+const count = countSuccessiveVowels(text);
+console.log("Number of successive vowels: " + count);
+
+
+function calculateCurrencyNotes(withdrawalAmountInHundreds) {
+    let withdrawalAmountInRupees = withdrawalAmountInHundreds * 100;
+
+    let numberOfHundreds = 0;
+    let numberOfFifties = 0;
+    let numberOfTens = 0;
+
+    while (withdrawalAmountInRupees >= 100) {
+        withdrawalAmountInRupees -= 100;
+        numberOfHundreds++;
+    }
+    while (withdrawalAmountInRupees >= 50) {
+        withdrawalAmountInRupees -= 50;
+        numberOfFifties++;
+    }
+    while (withdrawalAmountInRupees >= 10) {
+        withdrawalAmountInRupees -= 10;
+        numberOfTens++;
+    }
+
+    console.log("Number of 100s: " + numberOfHundreds);
+    console.log("Number of 50s: " + numberOfFifties);
+    console.log("Number of 10s: " + numberOfTens);
+}
+
+const withdrawalAmountInHundreds = 3; 
+calculateCurrencyNotes(withdrawalAmountInHundreds);
+
+
+    </script>
+</body>
+</html>
